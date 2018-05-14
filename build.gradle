@@ -1,0 +1,64 @@
+//plugins {
+//    id 'java'
+//}
+
+group 'com.pcmnac'
+version '1.0-SNAPSHOT'
+
+//sourceCompatibility = 1.8
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6"
+    }
+}
+
+apply plugin: 'java'
+//apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'myproject'
+    version =  '0.0.1-SNAPSHOT'
+}
+
+repositories {
+//    mavenCentral()
+    jcenter()
+//    maven { url "https://repo.spring.io/snapshot" }
+//    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+
+    compile 'com.mashape.unirest:unirest-java:1.4.9'
+    compile "org.apache.httpcomponents:httpclient:4.3.6"
+    compile "org.apache.httpcomponents:httpasyncclient:4.0.2"
+    compile "org.apache.httpcomponents:httpmime:4.3.6"
+    compile "org.json:json:20140107"
+
+    compile 'com.graphql-java:java-dataloader:1.0.2'
+
+//    compile 'com.graphql-java:graphql-java:7.0'
+
+    compile 'com.graphql-java:graphql-java-tools:4.2.0'
+
+    compile 'com.graphql-java:graphql-spring-boot-starter:4.0.0'
+    compile 'com.graphql-java:graphiql-spring-boot-starter:4.0.0'
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+}
+
+//jar.enabled = false
+//uploadArchives.enabled = false
+//bintrayUpload.enabled = false
